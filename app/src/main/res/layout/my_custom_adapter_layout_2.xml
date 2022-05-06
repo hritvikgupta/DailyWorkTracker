@@ -17,13 +17,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/foot" />
 
         <TextView
             android:id="@+id/tView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="70dp"
             android:layout_weight="3"
             android:gravity="center_horizontal"
             android:text="TextView"

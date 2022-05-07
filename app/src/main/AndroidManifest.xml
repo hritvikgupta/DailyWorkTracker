@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyWorkTracker">
         <activity
+            android:name=".MealFragmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".TrackingOptions"
             android:exported="false" />
         <activity

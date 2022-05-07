@@ -20,13 +20,13 @@ import java.util.Calendar;
 import android.content.*;
 
 
-public class TrackingOptions extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,mealFragment.ItemSelected {
+public class TrackingOptions extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     ListView lsview;
     ArrayList<String> options;
     TextView dateText;
     Button dateButton;
-    mealFragment mfrag;
+
 
 
 
@@ -104,9 +104,5 @@ public class TrackingOptions extends AppCompatActivity implements DatePickerDial
 
     }
 
-    @Override
-    public void OnItemSelected(int index) {
-        Toast.makeText(TrackingOptions.this, "you have clicked on" + index, Toast.LENGTH_SHORT).show();
 
-    }
 }

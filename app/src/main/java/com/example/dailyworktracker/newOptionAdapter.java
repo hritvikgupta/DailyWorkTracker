@@ -1,6 +1,8 @@
 package com.example.dailyworktracker;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +24,16 @@ public class newOptionAdapter extends ArrayAdapter<String> {
     TextView outMealText;
     Button mealButton;
     Context context;
+    public static ArrayList<storeEditModel> storeEditModelArrayList;
 
 
 
-    public newOptionAdapter(@NonNull Context context, int resource, ArrayList<String> arr) {
+
+    public newOptionAdapter(@NonNull Context context, int resource, ArrayList<String> arr, ArrayList<storeEditModel> storeEditModelArrayList) {
         super(context, resource, arr);
         this.context = context;
         this.arr = arr;
-
+        this.storeEditModelArrayList = storeEditModelArrayList;
 
     }
 
@@ -52,6 +56,9 @@ public class newOptionAdapter extends ArrayAdapter<String> {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.new_option_adapter, null, true);
+            holder.inMealText = (EditText) convertView.findViewById(R.id.inMealText);
+            holder.mealOptionText = (TextView) convertView.findViewById(R.id.mealOptionText);
+            holder.mealButton = (Button) convertView.findViewById(R.id.mealButton);
             convertView.setTag(holder);
         }
         else {
@@ -59,25 +66,30 @@ public class newOptionAdapter extends ArrayAdapter<String> {
             holder = (ViewHolder)convertView.getTag();
         }
 
+        holder.mealOptionText.setText(getItem(position));
+        holder.inMealText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    storeEditModelArrayList.get(position).setEditTextValue(holder.inMealText.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //Toast.makeText(context, "Value Recived " + holder.inMealText.getText().toString().trim(),Toast.LENGTH_SHORT).show();
 
 
-        Button mealButton = convertView.findViewById(R.id.mealButton);
-        inMealText = convertView.findViewById(R.id.inMealText);
-        outMealText  = convertView.findViewById(R.id.outMealText);
-        //mealButton.setTag(1, position);
+            }
+        });
 
 
-        if(getItem(position).equals("BreakFast") ) {
-            mealButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    Toast.makeText(context, "Clicked" +getItem(position)+mealButton.getTag(), Toast.LENGTH_SHORT).show();
-                    outMealText.setText(inMealText.getText().toString());
 
-                }
-            });
-        }
+
 
 
 
@@ -85,8 +97,11 @@ public class newOptionAdapter extends ArrayAdapter<String> {
     }
 
     private class ViewHolder {
-        protected Button mealButton;
-        private TextView outMealText;
+
         private EditText inMealText;
+        private TextView mealOptionText;
+        private Button mealButton;
+
     }
+
 }

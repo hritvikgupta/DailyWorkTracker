@@ -24,8 +24,10 @@ public class TrackingOptions extends AppCompatActivity implements DatePickerDial
 
     ListView lsview;
     ArrayList<String> options;
-    TextView dateText;
+    TextView dateText, outMealText;
     Button dateButton;
+    int i;
+
 
 
 
@@ -38,7 +40,14 @@ public class TrackingOptions extends AppCompatActivity implements DatePickerDial
         //These are from the adapter xml attributes
         dateText = findViewById(R.id.dateText);
         dateButton  = findViewById(R.id.dateButton);
+        /*
+        outMealText = findViewById(R.id.outMealText);
+        for(i =0; i<newOptionAdapter.storeEditModelArrayList.size();i++)
+        {
+            outMealText.setText(newOptionAdapter.storeEditModelArrayList.get(i).getEditTextValue());
+        }
 
+         */
         //These are from the this activity attributes
         lsview = findViewById(R.id.lsview);
         options = new ArrayList<String>();

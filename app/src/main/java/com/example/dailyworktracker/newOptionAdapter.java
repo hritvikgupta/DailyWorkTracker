@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class newOptionAdapter extends ArrayAdapter<String> {
 
+
+    //Solution is in the https://demonuts.com/android-listview-tutorial/
     ArrayList<String> arr;
     EditText inMealText;
     TextView outMealText;

@@ -24,7 +24,8 @@ public class MealFragmentActivity extends AppCompatActivity{
     LayoutInflater inflater;
     ArrayList<String> meals;
     ArrayList<String> options;
-    TextView inMealText, outMealText;
+    TextView inMealText;
+    ListView outMealText;
     public ArrayList<storeEditModel> storeEditModelArrayList;
 
     Button mealButton;
@@ -62,12 +63,13 @@ public class MealFragmentActivity extends AppCompatActivity{
                 //Toast.makeText(MealFragmentActivity.this, "Meals"+newOptionAdapter.storeEditModelArrayList.get(1).getEditTextValue(),Toast.LENGTH_SHORT).show();
                 for(i =0; i<newOptionAdapter.storeEditModelArrayList.size();i++) {
                     //Toast.makeText(MealFragmentActivity.this, "Meals"+newOptionAdapter.storeEditModelArrayList.get(i).getEditTextValue(),Toast.LENGTH_SHORT).show();
-                    ans.add(newOptionAdapter.storeEditModelArrayList.get(i).getEditTextValue());
+                    ans.add(options.get(i) + " : " +  newOptionAdapter.storeEditModelArrayList.get(i).getEditTextValue());
 
                 }
-                Toast.makeText(MealFragmentActivity.this, "Meals"+ outMealText.getText(),Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MealFragmentActivity.this, "Meals"+ outMealText.getText(),Toast.LENGTH_SHORT).show();
 
-                outMealText.setText(String.valueOf(ans + System.getProperty("line.separator")));
+                ArrayAdapter se = new ArrayAdapter(MealFragmentActivity.this, android.R.layout.simple_list_item_1,ans);
+                outMealText.setAdapter(se);
 
 
 

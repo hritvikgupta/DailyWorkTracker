@@ -4,16 +4,10 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/outMealText"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="Meals added" />
-
     <ListView
         android:id="@+id/listViewMeals"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:layout_gravity="center_horizontal" />
 
     <Button
@@ -22,5 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Save Meal" />
+
+    <ListView
+        android:id="@+id/outMealText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -39,6 +39,8 @@ public class MealFragmentActivity extends AppCompatActivity{
         mealButton = findViewById(R.id.mealButton);
         lsViewMeals = findViewById(R.id.listViewMeals);
         outMealText = findViewById(R.id.outMealText);
+        ArrayList<String> ans = new ArrayList<String>();
+        //CharSequence [] ans = new CharSequence[4];
 
         options = new ArrayList<String>();
         options.add("BreakFast");
@@ -57,8 +59,17 @@ public class MealFragmentActivity extends AppCompatActivity{
         mealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MealFragmentActivity.this, "Meals"+newOptionAdapter.storeEditModelArrayList.get(1).getEditTextValue(),Toast.LENGTH_SHORT).show();
-                outMealText.setText(newOptionAdapter.storeEditModelArrayList.get(1).getEditTextValue());
+                //Toast.makeText(MealFragmentActivity.this, "Meals"+newOptionAdapter.storeEditModelArrayList.get(1).getEditTextValue(),Toast.LENGTH_SHORT).show();
+                for(i =0; i<newOptionAdapter.storeEditModelArrayList.size();i++) {
+                    //Toast.makeText(MealFragmentActivity.this, "Meals"+newOptionAdapter.storeEditModelArrayList.get(i).getEditTextValue(),Toast.LENGTH_SHORT).show();
+                    ans.add(newOptionAdapter.storeEditModelArrayList.get(i).getEditTextValue());
+
+                }
+                Toast.makeText(MealFragmentActivity.this, "Meals"+ outMealText.getText(),Toast.LENGTH_SHORT).show();
+
+                outMealText.setText(String.valueOf(ans + System.getProperty("line.separator")));
+
+
 
             }
         });
@@ -67,7 +78,7 @@ public class MealFragmentActivity extends AppCompatActivity{
     }
     private ArrayList<storeEditModel> populateList(){
         ArrayList<storeEditModel> list = new ArrayList<>();
-        for(int i = 0; i < 8; i++){
+        for(int i = 0; i < 4; i++){
             storeEditModel editModel = new storeEditModel();
             editModel.setEditTextValue(String.valueOf(i));
             list.add(editModel);
